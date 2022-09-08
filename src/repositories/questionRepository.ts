@@ -27,3 +27,14 @@ export async function getById(id: number) {
     })
     
 }
+
+export async function getByQuestionAndAskedBy(question: string, askedBy: string) {
+
+    return await prisma.questions.findFirst({
+        where: {
+            question,
+            askedBy
+        }
+    })
+    
+}
