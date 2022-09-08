@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import {
-  createAnswer,
   createQuestion,
   get,
   getById
@@ -19,12 +18,6 @@ questionRouter.post(
   '/questions',
   validateSchemaMiddleware(questionSchema),
   createQuestion
-);
-
-questionRouter.post(
-  '/questions/:id/answers',
-  validateSchemaMiddleware(answerSchema),
-  createAnswer
 );
 
 export default questionRouter;
