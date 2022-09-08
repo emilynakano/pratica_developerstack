@@ -17,6 +17,9 @@ export async function getAllQuestions() {
 export async function getById(questionId: number) {
     
     const questions = await questionRepository.getById(questionId);
+
+    if(!questions) throw {type: 'not_found', message: 'question not found'};
+    
     const answers = await answerService.getAnswersByQuestionId(questionId);
 
     return {...questions, answers}

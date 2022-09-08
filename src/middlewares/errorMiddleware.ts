@@ -8,7 +8,7 @@ export function errorHandlerMiddleware(
 ) {
   console.log(err);
   if (err.type) {
-    return res.sendStatus(errorTypeToStatusCode(err.type));
+    return res.status(errorTypeToStatusCode(err.type)).send(err.message);
   }
 
   return res.sendStatus(500);
